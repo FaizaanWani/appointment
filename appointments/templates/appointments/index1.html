@@ -1,0 +1,54 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Appointment to the doctor</title>
+        <link rel="stylesheet" href="{% static "css/appointment.css" %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        {{ form.media }}
+    </head>
+    
+    <body>
+        <form action="/" method="post" class="post-form">
+            {% csrf_token %}
+            
+            <p class="fieldWrapper">
+                <label for="{{ form.specialization.id_for_label }}">Specialty doctor</label>
+                {{ form.specialization  }}
+            </p>
+            
+            <p class="fieldWrapper">
+                <label for="{{ form.doctor.id_for_label }}">Doctor</label>
+                {{ form.doctor }}
+            </p>
+            
+            <p class="fieldWrapper">
+                <label for="{{ form.date.id_for_label }}">Date of receipt</label>
+                {{ form.date }}
+            </p>
+            
+            <p class="fieldWrapper">
+                <label for="{{ form.hour.id_for_label }}">Time of receipt</label>
+                {{ form.hour }}
+            </p>
+            
+            <p class="fieldWrapper">
+                <label for="{{ form.last_name.id_for_label }}">Surname</label>
+                {{ form.last_name }}
+            </p>
+            
+            <p class="fieldWrapper">
+                <label for="{{ form.first_name.id_for_label }}">Name</label>
+                {{ form.first_name }}
+            </p>
+            
+            <p class="fieldWrapper">
+                <label for="form.middle_name.id_for_label ">Middle Name</label>
+                {{ form.middle_name }}
+            </p>
+            <input class="btn btn-default" type="submit" value="enroll">
+        </form>
+    </body>
+</html>
